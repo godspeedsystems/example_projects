@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "noImplicitAny": false,
+      "module": "commonjs",
+      "noEmitOnError": true,
+      "removeComments": false,
+      "sourceMap": true,
+      "sourceRoot": "/home/ayushghai/godspeed/gs-node-service/src",
+      "target": "es5"
+    },
+    "exclude": [
+      "node_modules"
+    ]
+  }

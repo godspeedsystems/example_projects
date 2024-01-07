@@ -1,0 +1,9 @@
+type: express
+port: 9009
+# base_url: /http2
+# autshz:
+#   - fn: com.gs.transform
+#     id: http_default_authz
+#     args:
+#       success: true
+#       message: "EventSource authz failed"

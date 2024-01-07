@@ -1,0 +1,62 @@
+id: helloworld
+tasks:
+  - id: first_task
+    fn: com.gs.transform
+    args:
+      code: 200
+      success: true
+      message: "this is final response"
+      data:
+        typ: http2
+    # on_error:
+    #   continue: false
+    # authz:
+    #   id: task_authz
+    #   tasks:
+    #     - fn: com.gs.transform
+    #       id: try_auth_2
+    #       args: |
+    #         <js%
+    #           inputs.headers.x = 'ayush';
+    #         %>
+    #     - fn: com.gs.transform
+    #       id: try_auth_3
+    #       args: |
+    #         <js% 
+    #           if (inputs.headers.x === 'ayush') {
+    #             return {
+    #               success: true, 
+    #               message: "failed", 
+    #               data: {
+    #                 tableA: {
+    #                   access:['c1'],
+    #                   where:{
+    #                     email: 'ayush@gmail.com'
+    #                   }
+    #                 }
+    #               }
+    #             }
+    #           } else {
+    #             return true;
+    #           }
+    #         %>
+        # logs:
+        #   before:
+        #       level: info
+        #       message: 'Sample log before'
+        #       params: 
+        #         param1: val1
+        #         param2: val2
+        #       attributes:
+        #         request:
+        #           query: <%inputs.headers%>
+        #   after:
+        #       level: info
+        #       message: 'Sample log after'
+        #       params:
+        #         afterParam: d
+        #       attributes: 
+        #         s: d
+  - id: second_task
+    fn: prisma
+    args: <% JSON.stringify(mappings)%>
